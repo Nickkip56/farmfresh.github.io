@@ -1,0 +1,38 @@
+{% extends 'index.html'%} {% block title %} {{category.name}} {% endblock %}
+{%block content %}
+
+<h2 style = "
+            color: #43960f;
+            font-size: 30px;
+            line-height: 35px;
+            font-weight: bold;
+            padding-bottom: 20px;
+            ">{{ cats}}</h2>
+
+
+  <div class="container">
+    <h2>{{ cats }}</h2>
+      <hr />
+    <div class="row">
+      {% for product in products_category %}
+      <div class="col">
+        <div class="card" style="width: 18rem">
+          <img src="{{ product.image_url }}" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">${{ product.price }}</p>
+            <a href="#" class="btn btn-primary">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <hr />
+
+  <br /><br />
+  <a href="{% url 'home' %}" class="btn btn-secondary">BACK</a>
+
+  {% endblock %}
+</div>

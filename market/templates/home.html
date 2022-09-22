@@ -1,0 +1,50 @@
+{% extends 'index.html'%} {% block content %} {% load static %}
+
+<h1
+  style="
+    color: #43960f;
+    font-size: 30px;
+    line-height: 35px;
+    font-weight: bold;
+    padding-bottom: 20px;
+  "
+>
+  CATEGORIES
+</h1>
+
+{% for category in category %}
+
+<div id="about" class="about">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+        <div class="about-box">
+          <h2>{{ category.name }}</h2>
+
+          <p>
+            {{ category.description }}It is a long established fact that a
+            reader will be distracted by the readable content of a page when
+            looking at its layout. The point of using Lorem Ipsum is that it has
+            a more-or-less normal distribution of letters, as opposed to using
+            'Content here, content here', making it look like readable English.
+            Many desktop publishing packages andIt is a long established fact
+            that a reader will be distracted by the readable content of a page
+            when looking at its layout. The point of using Lorem Ipsum is that
+            it has a more-or-less normal distribution of letters, as opposed to
+            using 'Content here, content here', making it look like readable
+            English. Many
+          </p>
+          <a href="{% url 'category-detail' category.name %}"
+            >BUY {{ category.name }}</a>
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_rl">
+        <div class="about-box_img">
+          <figure><img src="{{ category.image_url }}" alt="#" /></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endfor %} {% endblock %}
